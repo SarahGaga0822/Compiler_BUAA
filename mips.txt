@@ -1,0 +1,359 @@
+.data
+globalConst1: .word 11
+globalConst2: .word 22
+globalConstArray2: .word 6 7 8 9 10 11 
+globalConstArray1: .word 10 20 30 
+globalVirable1: .word 111
+globalVirable2: .word 0
+$STRING0: .asciiz "["
+$STRING1: .asciiz "]["
+$STRING2: .asciiz "]:"
+$STRING3: .asciiz "|"
+$STRING4: .asciiz " , ["
+$STRING5: .asciiz "]:"
+$STRING6: .asciiz "|"
+$STRING7: .asciiz "19373063"
+$STRING8: .asciiz "1.localVirable1 = "
+$STRING9: .asciiz ",localVirable2 = "
+$STRING10: .asciiz " "
+$STRING11: .asciiz "2."
+$STRING12: .asciiz "?"
+$STRING13: .asciiz "3.function of kinds of parameters testified"
+$STRING14: .asciiz "4.non exp testified"
+$ENDL: .asciiz "\n"
+
+.text
+jal main
+li $v0 10
+syscall
+
+assignmentArray:
+li $s0, 0
+sw $s0, -12($sp)
+lw $t0, -12($sp)
+sw $t0, -16($sp)
+lw $t0, 0($sp)
+subu $t1, $t0, 1
+sw $t1, -20($sp)
+while_begin_0:
+lw $t0, -12($sp)
+li $s0, 3
+slt $t1, $t0, $s0
+beqz $t1, and_fail_0
+lw $t2, -12($sp)
+lw $t3, -20($sp)
+sle $t4, $t2, $t3
+beqz $t4, and_fail_0
+j and_success_0
+and_fail_0:
+li $t4, 0
+and_success_0:
+bgtz $t4, or_success_0
+j or_fail_0
+or_success_0:
+li $t4, 1
+or_fail_0:
+beqz $t4, while_end_0
+lw $t0, -12($sp)
+lw $t2, -12($sp)
+sll $t2, $t2, 2
+lw $t3, globalConstArray1($t2)
+li $s0, 10
+div $t3, $s0
+mflo $t4
+subu $t5, $t4, 10
+lw $s0, -4($sp)
+sll $t0, $t0, 2
+addu $s0, $s0, $t0
+sw $t5, 0($s0)
+lw $t1, -12($sp)
+addu $t2, $t1, 1
+sw $t2, -12($sp)
+j while_begin_0
+while_end_0:
+lw $t1, -12($sp)
+subu $t2, $t1, 1
+sw $t2, -12($sp)
+while_begin_1:
+lw $t0, -12($sp)
+sge $t1, $t0, 0
+beqz $t1, and_fail_1
+j and_success_1
+and_fail_1:
+li $t1, 0
+and_success_1:
+bgtz $t1, or_success_1
+j or_fail_1
+or_success_1:
+li $t1, 1
+or_fail_1:
+beqz $t1, while_end_1
+lw $t0, -12($sp)
+lw $t2, -12($sp)
+sll $t2, $t2, 2
+lw $t3, globalConstArray1($t2)
+li $s0, 10
+div $t3, $s0
+mflo $t4
+subu $t5, $t4, 10
+lw $s0, -4($sp)
+sll $t0, $t0, 2
+addu $s0, $s0, $t0
+sw $t5, 0($s0)
+while_begin_2:
+li $t0, 1
+beqz $t0, and_fail_2
+j and_success_2
+and_fail_2:
+li $t0, 0
+and_success_2:
+bgtz $t0, or_success_2
+j or_fail_2
+or_success_2:
+li $t0, 1
+or_fail_2:
+beqz $t0, while_end_2
+lw $t0, -16($sp)
+li $s0, 2
+slt $t1, $t0, $s0
+beqz $t1, and_fail_3
+j and_success_3
+and_fail_3:
+li $t1, 0
+and_success_3:
+bgtz $t1, or_success_3
+j or_fail_3
+or_success_3:
+li $t1, 1
+or_fail_3:
+beqz $t1, if_else_0
+lw $t0, -12($sp)
+lw $t1, -16($sp)
+mul $t2, $t0, 2
+addu $t3, $t2, $t1
+lw $t5, -12($sp)
+lw $t6, -16($sp)
+mul $t7, $t5, 2
+addu $t8, $t7, $t6
+sll $t8, $t8, 2
+lw $t9, globalConstArray2($t8)
+li $s0, 6
+div $t9, $s0
+mfhi $s2
+addu $s3, $s2, 6
+lw $s0, -8($sp)
+sll $t3, $t3, 2
+addu $s0, $s0, $t3
+sw $s3, 0($s0)
+lw $t1, -16($sp)
+addu $t2, $t1, 1
+sw $t2, -16($sp)
+j while_begin_2
+j if_end_0
+if_else_0:
+li $s0, 0
+sw $s0, -16($sp)
+lw $t0, -12($sp)
+lw $t1, -16($sp)
+lw $t2, -12($sp)
+lw $t3, -16($sp)
+mul $t4, $t2, 2
+addu $t5, $t4, $t3
+lw $s0, -8($sp)
+sll $t5, $t5, 2
+addu $s0, $s0, $t5
+lw $t6, 0($s0)
+lw $t7, -12($sp)
+lw $t8, -16($sp)
+mul $t9, $t7, 2
+addu $s2, $t9, $t8
+sll $s2, $s2, 2
+lw $s3, globalConstArray2($s2)
+lw $s4, -12($sp)
+lw $s5, -12($sp)
+lw $s0, -4($sp)
+sll $s5, $s5, 2
+addu $s0, $s0, $s5
+lw $s6, 0($s0)
+lw $s7, -12($sp)
+sll $s7, $s7, 2
+lw $s5, globalConstArray1($s7)
+la $a0, $STRING0
+li $v0, 4
+syscall
+move $a0, $t0
+li $v0, 1
+syscall
+la $a0, $STRING1
+li $v0, 4
+syscall
+move $a0, $t1
+li $v0, 1
+syscall
+la $a0, $STRING2
+li $v0, 4
+syscall
+move $a0, $t6
+li $v0, 1
+syscall
+la $a0, $STRING3
+li $v0, 4
+syscall
+move $a0, $s3
+li $v0, 1
+syscall
+la $a0, $STRING4
+li $v0, 4
+syscall
+move $a0, $s4
+li $v0, 1
+syscall
+la $a0, $STRING5
+li $v0, 4
+syscall
+move $a0, $s6
+li $v0, 1
+syscall
+la $a0, $STRING6
+li $v0, 4
+syscall
+move $a0, $s5
+li $v0, 1
+syscall
+la $a0, $ENDL
+li $v0, 4
+syscall
+j while_end_2
+if_end_0:
+j while_begin_2
+while_end_2:
+lw $t1, -12($sp)
+subu $t2, $t1, 1
+sw $t2, -12($sp)
+j while_begin_1
+while_end_1:
+jr $ra
+jr $ra
+
+main:
+la $a0, $STRING7
+li $v0, 4
+syscall
+la $a0, $ENDL
+li $v0, 4
+syscall
+li $s0, 11
+sw $s0, 0($sp)
+li $s0, 10
+sw $s0, -40($sp)
+li $s0, 3
+sw $s0, -44($sp)
+lw $t0, 0($sp)
+lw $t1, -40($sp)
+la $a0, $STRING8
+li $v0, 4
+syscall
+move $a0, $t0
+li $v0, 1
+syscall
+la $a0, $STRING9
+li $v0, 4
+syscall
+move $a0, $t1
+li $v0, 1
+syscall
+la $a0, $STRING10
+li $v0, 4
+syscall
+la $a0, $ENDL
+li $v0, 4
+syscall
+la $a0, $STRING11
+li $v0, 4
+syscall
+la $a0, $ENDL
+li $v0, 4
+syscall
+sw $t0, -48($sp)
+sw $t1, -52($sp)
+sw $t2, -56($sp)
+sw $t3, -60($sp)
+sw $t4, -64($sp)
+sw $t5, -68($sp)
+sw $t6, -72($sp)
+sw $t7, -76($sp)
+sw $t8, -80($sp)
+sw $t9, -84($sp)
+sw $s2, -88($sp)
+sw $s3, -92($sp)
+sw $s4, -96($sp)
+sw $s5, -100($sp)
+sw $s6, -104($sp)
+sw $s7, -108($sp)
+sw $ra, -112($sp)
+lw $t0, -44($sp)
+sw $t0 -116($sp)
+subu $s0, $sp, 12
+sw $s0, -120($sp)
+subu $s0, $sp, 36
+sw $s0, -124($sp)
+subu $sp, $sp, 116
+jal assignmentArray
+addu $sp, $sp, 116
+lw $ra, -112($sp)
+lw $s7, -108($sp)
+lw $s6, -104($sp)
+lw $s5, -100($sp)
+lw $s4, -96($sp)
+lw $s3, -92($sp)
+lw $s2, -88($sp)
+lw $t9, -84($sp)
+lw $t8, -80($sp)
+lw $t7, -76($sp)
+lw $t6, -72($sp)
+lw $t5, -68($sp)
+lw $t4, -64($sp)
+lw $t3, -60($sp)
+lw $t2, -56($sp)
+lw $t1, -52($sp)
+lw $t0, -48($sp)
+move $t3, $v0
+lw $t0, -24($sp)
+move $a0, $t0
+li $v0, 1
+syscall
+la $a0, $STRING12
+li $v0, 4
+syscall
+la $a0, $ENDL
+li $v0, 4
+syscall
+la $a0, $STRING13
+li $v0, 4
+syscall
+la $a0, $ENDL
+li $v0, 4
+syscall
+li $t0, 1
+beqz $t0, and_fail_4
+j and_success_4
+and_fail_4:
+li $t0, 0
+and_success_4:
+bgtz $t0, or_success_4
+j or_fail_4
+or_success_4:
+li $t0, 1
+or_fail_4:
+beqz $t0, if_else_1
+j if_end_1
+if_else_1:
+if_end_1:
+la $a0, $STRING14
+li $v0, 4
+syscall
+la $a0, $ENDL
+li $v0, 4
+syscall
+li $v0, 0
+jr $ra

@@ -1,0 +1,262 @@
+const globalConst1
+globalConst1 = 11
+const globalConst2
+globalConst2 = 22
+const globalConstArray2
+globalConstArray2[0] = 6
+globalConstArray2[1] = 7
+globalConstArray2[2] = 8
+globalConstArray2[3] = 9
+globalConstArray2[4] = 10
+globalConstArray2[5] = 11
+const globalConstArray1
+globalConstArray1[0] = 10
+globalConstArray1[1] = 20
+globalConstArray1[2] = 30
+var globalVirable1
+globalVirable1 = 111
+var globalVirable2
+globalVirable2 = 0
+void assignmentArray()
+para n
+para array1
+para array2
+
+Block
+var i
+i = 0
+var j
+t0 = i
+j = t0
+var m
+t0 = n
+t1 = t0 - 1
+m = t1
+label while_begin_0:
+t0 = i
+t1 = t0 < 3
+beqz t1 and_fail_0
+t2 = i
+t3 = m
+t4 = t2 <= t3
+beqz t4 and_fail_0
+jump and_success_0
+label and_fail_0:
+t4 = 0
+label and_success_0:
+bgtz t4 or_success_0
+jump or_fail_0
+label or_success_0:
+t4 = 1
+label or_fail_0:
+beqz t4 while_end_0
+
+Block
+t0 = i
+t2 = i
+t3 = globalConstArray1[t2]
+t4 = t3 / 10
+t5 = t4 - 10
+array1[t0] = t5
+t1 = i
+t2 = t1 + 1
+i = t2
+
+EndBlock
+jump while_begin_0
+label while_end_0:
+t1 = i
+t2 = t1 - 1
+i = t2
+label while_begin_1:
+t0 = i
+t1 = t0 >= 0
+beqz t1 and_fail_1
+jump and_success_1
+label and_fail_1:
+t1 = 0
+label and_success_1:
+bgtz t1 or_success_1
+jump or_fail_1
+label or_success_1:
+t1 = 1
+label or_fail_1:
+beqz t1 while_end_1
+
+Block
+t0 = i
+t2 = i
+t3 = globalConstArray1[t2]
+t4 = t3 / 10
+t5 = t4 - 10
+array1[t0] = t5
+label while_begin_2:
+t0 = 1
+beqz t0 and_fail_2
+jump and_success_2
+label and_fail_2:
+t0 = 0
+label and_success_2:
+bgtz t0 or_success_2
+jump or_fail_2
+label or_success_2:
+t0 = 1
+label or_fail_2:
+beqz t0 while_end_2
+
+Block
+t0 = j
+t1 = t0 < 2
+beqz t1 and_fail_3
+jump and_success_3
+label and_fail_3:
+t1 = 0
+label and_success_3:
+bgtz t1 or_success_3
+jump or_fail_3
+label or_success_3:
+t1 = 1
+label or_fail_3:
+beqz t1 if_else_0
+
+Block
+t0 = i
+t1 = j
+t2 = 2 * t0
+t3 = t2 + t1
+t5 = i
+t6 = j
+t7 = 2 * t5
+t8 = t7 + t6
+t9 = globalConstArray2[t8]
+s2 = t9 % 6
+s3 = s2 + 6
+array2[t3] = s3
+t1 = j
+t2 = t1 + 1
+j = t2
+jump while_begin_2
+
+EndBlock
+jump if_end_0
+label if_else_0:
+
+Block
+j = 0
+t0 = i
+t1 = j
+t2 = i
+t3 = j
+t4 = 2 * t2
+t5 = t4 + t3
+t6 = array2[t5]
+t7 = i
+t8 = j
+t9 = 2 * t7
+s2 = t9 + t8
+s3 = globalConstArray2[s2]
+s4 = i
+s5 = i
+s6 = array1[s5]
+s7 = i
+s5 = globalConstArray1[s7]
+write $STRING0 [
+write t0 t0
+write $STRING1 ][
+write t1 t1
+write $STRING2 ]:
+write t6 t6
+write $STRING3 |
+write s3 s3
+write $STRING4  , [
+write s4 s4
+write $STRING5 ]:
+write s6 s6
+write $STRING6 |
+write s5 s5
+LineBreak
+jump while_end_2
+
+EndBlock
+label if_end_0:
+
+EndBlock
+jump while_begin_2
+label while_end_2:
+t1 = i
+t2 = t1 - 1
+i = t2
+
+EndBlock
+jump while_begin_1
+label while_end_1:
+return
+
+EndBlock
+end_func assignmentArray()
+
+main
+
+Block
+write $STRING7 19373063
+LineBreak
+var localVirable1
+11 = globalConst1
+localVirable1 = 11
+var localVirableArray1
+var localVirableArray2
+var localVirable2
+10 = globalConstArray2[4]
+localVirable2 = 10
+var n
+n = 3
+t0 = localVirable1
+t1 = localVirable2
+write $STRING8 1.localVirable1 = 
+write t0 t0
+write $STRING9 ,localVirable2 = 
+write t1 t1
+write $STRING10  
+LineBreak
+write $STRING11 2.
+LineBreak
+store_env assignmentArray
+t0 = n
+push t0
+deliver_address t1 = localVirableArray1[0]
+push t1
+deliver_address t2 = localVirableArray2[0]
+push t2
+call assignmentArray
+restore_env assignmentArray
+t3 = RET
+t0 = localVirableArray2[3]
+write t0 t0
+write $STRING12 ?
+LineBreak
+write $STRING13 3.function of kinds of parameters testified
+LineBreak
+t0 = 1
+beqz t0 and_fail_4
+jump and_success_4
+label and_fail_4:
+t0 = 0
+label and_success_4:
+bgtz t0 or_success_4
+jump or_fail_4
+label or_success_4:
+t0 = 1
+label or_fail_4:
+beqz t0 if_else_1
+
+Block
+
+EndBlock
+jump if_end_1
+label if_else_1:
+label if_end_1:
+write $STRING14 4.non exp testified
+LineBreak
+return 0
+
+EndBlock
